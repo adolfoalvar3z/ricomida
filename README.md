@@ -1,0 +1,2 @@
+# ricomida
+ proyecto bootcamp rails
