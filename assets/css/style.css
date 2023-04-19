@@ -13,3 +13,12 @@ body{
 .ricomida{
     font-family: 'Lobster';
 }
+.w-24{
+    width: 24%;
+}
+hr{
+    opacity: 1 !important;
+}
+img:hover{
+    filter: saturate(2);
+}
