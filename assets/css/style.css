@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Lobster&display=swap');
+/*
+font-family: 'Cabin', sans-serif;
+font-family: 'Lobster', cursive;
+*/
+*{
+    font-family: 'Cabin';
+}
+body{
+    color: #373A3C;
+
+}
+.ricomida{
+    font-family: 'Lobster';
+}
