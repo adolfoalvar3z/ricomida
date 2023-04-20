@@ -1,24 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Lobster&display=swap');
-/*
-font-family: 'Cabin', sans-serif;
-font-family: 'Lobster', cursive;
-*/
-*{
+
+* {
     font-family: 'Cabin';
 }
-body{
+
+body {
     color: #373A3C;
+    cursor: url('../img/cursor.png'), default !important;
 
 }
-.ricomida{
+
+.ricomida {
     font-family: 'Lobster';
 }
-.w-24{
+
+.w-24 {
     width: 24%;
 }
-hr{
+
+hr {
     opacity: 1 !important;
 }
-img:hover{
+
+img:hover {
     filter: saturate(2);
+}
+
+.pelotitas {
+    position: relative;
+    top: 105%;
+}
+
+.redondo {
+    width: 15px !important;
+    height: 15px !important;
+    border-radius: 100% !important;
+}
+
+ul li {
+    list-style: none;
 }

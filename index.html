@@ -7,9 +7,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/img/pizza.png" type="image/x-icon">
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="author" content="Adolfo Álvarez">
+    <meta name="description" content="Sitio web de alimentos">
+    <meta name="keywords" content="pizzas, masas, salsa de tomate, salsa roja">
+    <meta name="copyright" content="Todos los derechos reservados">
 </head>
 
 <body>
@@ -49,17 +54,21 @@
                 <img src="assets/img/principal.jpg" class="rounded img-thumbnail w-100" alt="Pizza">
             </div>
             <div class="col-12 col-sm-12 col-md-6 text-center text-md-start pt-5 pe-md-5 pe-lg-5">
+                <div id="liveAlertPlaceholder"></div>
+
                 <h2 class="pt-md-1 fs-1 fs-sm-2 pe-md-5 pe-lg-5">PIZZA AL ESTILO CHICAGO CON ESPINACAS Y CHAMPIÑONES
                 </h2>
                 <hr class="">
                 <p class="fw-bold fs-5">110 MIN / 6 A 8 PORCIONES</p>
                 <div class="py-4 ms-auto me-auto row">
                     <div class="col-6">
-                        <button class="btn btn-sm btn-light border w-100 fs-6">Enviar por correo</button>
+                        <button class="btn btn-sm btn-light border w-100 fs-6" type="button" id="enviarCorreo"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Enviar por correo">Enviar por
+                            correo</button>
 
                     </div>
                     <div class="col-6">
-                        <button class="btn btn-sm btn-light border w-100  fs-6">Añadir a favoritos</button>
+                        <button class="btn btn-sm btn-light border w-100 fs-6">Añadir a favoritos</button>
                     </div>
                 </div>
             </div>
@@ -69,23 +78,24 @@
             <div class="col-12">
                 <div id="carouselExampleIndicators" class="mx-auto carousel carousel-dark slide"
                     data-bs-ride="carousel">
-                    <div class="carousel-indicators">
+                    <div class="carousel-indicators pelotitas">
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
+                            class="active redondo" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" class="redondo" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide-to="1" aria-label="Slide 2"></button>
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="assets/img/slider-1.png" class="rounded img-thumbnail w-24 " alt="...">
-                            <img src="assets/img/slider-2.png" class="rounded img-thumbnail w-24" alt="...">
-                            <img src="assets/img/slider-3.png" class="rounded img-thumbnail w-24" alt="...">
-                            <img src="assets/img/slider-4.png" class="rounded img-thumbnail w-24" alt="...">
+                            <img src="assets/img/slider-1.png" class="rounded img-thumbnail w-24 " alt="Champiñones">
+                            <img src="assets/img/slider-2.png" class="rounded img-thumbnail w-24" alt="Pizza">
+                            <img src="assets/img/slider-3.png" class="rounded img-thumbnail w-24" alt="Masa">
+                            <img src="assets/img/slider-4.png" class="rounded img-thumbnail w-24" alt="Amasando">
                         </div>
 
                         <div class="carousel-item">
-                            <img src="assets/img/slider-5.png" class="rounded img-thumbnail w-24" alt="...">
-                            <img src="assets/img/slider-6.png" class="rounded img-thumbnail w-24" alt="...">
+                            <img src="assets/img/slider-5.png" class="rounded img-thumbnail w-24" alt="Trozo de pizza">
+                            <img src="assets/img/slider-6.png" class="rounded img-thumbnail w-24"
+                                alt="Ingredientes Pizza">
                             <img src="assets/img/slider-7.png" class="rounded img-thumbnail w-24" alt="...">
                             <img src="assets/img/slider-8.png" class="rounded img-thumbnail w-24" alt="...">
                         </div>
@@ -97,7 +107,7 @@
 
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6">
-                <h4 class="text-decoration-underline mb-5">INGREDIENTES</h4>
+                <h4 class="text-decoration-underline mb-5" id="ingredientes">INGREDIENTES</h4>
                 <h5>Masa</h5>
                 <ul class="">
                     <li class="my-3">20 gr de levadura seca instantánea</li>
@@ -126,7 +136,7 @@
                 </ul>
             </div>
             <div class="col-12 col-sm-12 col-md-6">
-                <h4 class="text-decoration-underline mb-5">PREPARACIÓN</h4>
+                <h4 class="text-decoration-underline mb-5" id="preparacion">PREPARACIÓN</h4>
                 <ol class="">
                     <li class="my-3">Para la masa, disolver la levadura y el azúcar en agua tibia en un bol grande.
                         Dejar reposar 2
@@ -141,7 +151,7 @@
                         Agregar la cebolla, Orégano Gourmet, Albahaca Gourmet, sal y cocinar hasta que la cebolla esté
                         dorada. Agregar el ajo y cocinar por 30 segundos. Agregar los tomates junto al jugo del tarro, a
                         la mezcla de cebolla. Agregar el azúcar y cocinar hasta que la mezcla se haya reducido y
-                        espesado, como 30 minutos. Sazonar con sal y pimienta a gusto. Reservar. </li>
+                        espesado, como 30 minutos. Sazonar con sal y pimienta a gusto. Reservar.</li>
                     <li class="my-3">Relleno: Cocinar las chalotas en el aceite de oliva hasta que estén transparentes.
                         Agregar los
                         champiñones y las espinacas, cocinar hasta que estén cocidos y se haya evaporado todo el líquido
@@ -166,30 +176,33 @@
             <h2 class="display-4 text-center fw-bold">Recetas Relacionadas</h2>
             <div class="col-12 col-sm-12 col-md-4 p-3">
                 <div class="card">
-                    <img class="card-img-top" src="assets/img/recipe-card-1.png" alt="Title">
+                    <img class="card-img-top panqueques" src="assets/img/recipe-card-1.png" alt="Title">
                     <div class="card-body">
-                        <h4 class="card-title">PANQUEQUES CON MANJAR Y CREMA</h4>
-                        <p class="card-text">Mus enim elementum dignissim class eleifend justo, ut nunc magnis est
+                        <h4 class="card-title panqueques">PANQUEQUES CON MANJAR Y CREMA</h4>
+                        <p class="card-text textopanqueques">Mus enim elementum dignissim class eleifend justo, ut nunc
+                            magnis est
                             vulputate nostra, blandit erat luctus faucibus orci.</p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 p-3">
                 <div class="card">
-                    <img class="card-img-top" src="assets/img/recipe-card-2.png" alt="Title">
+                    <img class="card-img-top tiramisu" src="assets/img/recipe-card-2.png" alt="Title">
                     <div class="card-body">
-                        <h4 class="card-title">TIRAMISÚ</h4>
-                        <p class="card-text">Congue fermentum dignissim rhoncus elementum ac nisi, proin phasellus
+                        <h4 class="card-title tiramisu">TIRAMISÚ</h4>
+                        <p class="card-text textotiramisu">Congue fermentum dignissim rhoncus elementum ac nisi, proin
+                            phasellus
                             lacinia sed faucibus mauris, taciti scelerisque nulla ornare consequat.</p>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-sm-12 col-md-4 p-3">
                 <div class="card">
-                    <img class="card-img-top " src="assets/img/recipe-card-3.png" alt="Title">
+                    <img class="card-img-top plateada" src="assets/img/recipe-card-3.png" alt="Title">
                     <div class="card-body">
-                        <h4 class="card-title">PLATEADA</h4>
-                        <p class="card-text">Cubilia elementum posuere arcu rhoncus egestas lectus, diam aliquam laoreet
+                        <h4 class="card-title plateada">PLATEADA</h4>
+                        <p class="card-text textoplateada">Cubilia elementum posuere arcu rhoncus
+                            egestas lectus, diam aliquam laoreet
                             ac eleifend risus, urna auctor inceptos mattis dapibus.</p>
                     </div>
                 </div>
@@ -221,10 +234,54 @@
         <span class="ricomida fs-1 my-5">Ricomida</span>
         <!-- place footer here -->
     </footer>
+
+
+
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            //llama funcion
+            $(".plateada").click(function () {
+                $(".textoplateada").toggle("slow");
+            });
+            $(".tiramisu").click(function () {
+                $(".textotiramisu").toggle("slow");
+            });
+            $(".panqueques").click(function () {
+                $(".textopanqueques").toggle("slow");
+            });
+
+            //color textos
+            $("#preparacion").on('dblclick', function () {
+                $("#preparacion").toggleClass("text-danger");
+            });
+
+            $("#ingredientes").on('dblclick', function () {
+                $("#ingredientes").toggleClass("text-danger");
+            });
+            //
+
+        });
+
+    </script>
+
+    <script>
+        //TOOLTIP
+
+    </script>
+
+    <script>
+
+    </script>
+
 </body>
 
 </html>
