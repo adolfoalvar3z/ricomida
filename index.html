@@ -15,13 +15,6 @@
     <meta name="description" content="Sitio web de alimentos">
     <meta name="keywords" content="pizzas, masas, salsa de tomate, salsa roja">
     <meta name="copyright" content="Todos los derechos reservados">
-    <style>
-        *{
-            cursor: url('assets/img/cursor.png'), default;
-
-        }
-
-    </style>
 </head>
 
 <body>
@@ -106,6 +99,7 @@
                             <img src="assets/img/slider-7.png" class="rounded img-thumbnail w-24" alt="...">
                             <img src="assets/img/slider-8.png" class="rounded img-thumbnail w-24" alt="...">
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -275,20 +269,13 @@
                 $("#ingredientes").toggleClass("text-danger");
             });
             //
+            $("#enviarCorreo").on('click', function () {
+                alert("El correo fue enviado correctamente...");
+            });
 
         });
 
     </script>
-
-    <script>
-        //TOOLTIP
-
-    </script>
-
-    <script>
-
-    </script>
-
 </body>
 
 </html>
